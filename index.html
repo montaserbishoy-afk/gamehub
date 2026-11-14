@@ -100,10 +100,26 @@ b.onclick=()=>{[...bar.children].forEach(z=>z.className='btn alt');b.className='
 document.querySelectorAll('.g.x').forEach(z=>z.style.display=(i==0||z.dataset.c==c)?'':'none')};bar.appendChild(b)});
 ext.forEach(([n,ic,u,c])=>{const b=document.createElement('button');b.className='g x';b.dataset.c=c;
 b.innerHTML=`<img src="${ic}" alt="" loading="lazy" width="64" height="64" style="border-radius:14px;display:block;object-fit:cover"><h3>${n}</h3><span>${c}</span><br><em>العب الآن</em>`;
-b.onclick=()=>{close_();$('#mt').textContent=n;score.textContent='';$('#modal').classList.add('on');
-stage.innerHTML=`<iframe src="${u}" title="${n}" allow="fullscreen" style="width:100%;height:min(70vh,560px);border:0;border-radius:14px;background:#000"></iframe>`;const ad=adSlot(ADS.slotGame);if(ad)stage.appendChild(ad)};
+b.onclick=()=>openExt(n,u);
 $('#grid').appendChild(b)});
 {const h=adSlot(ADS.slotHome);if(h)$('#homeAd').appendChild(h)}
+function openExt(n,u){close_();const v=document.createElement('div');v.id='gv';
+v.style.cssText='position:fixed;inset:0;z-index:30;background:#000;display:flex;flex-direction:column';
+const bar=document.createElement('div');
+bar.style.cssText='display:flex;gap:8px;align-items:center;padding:6px 10px;background:#14122b;color:#f5f3ff;font-family:Cairo,sans-serif;direction:rtl';
+bar.innerHTML=`<b style="flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">${n}</b>
+<button class="btn" id="gF">ملء الشاشة</button><a class="btn alt" id="gT" href="${u}" target="_blank" rel="noopener" style="text-decoration:none">تبويب جديد</a><button class="btn alt" id="gX">إغلاق</button>`;
+const ld=document.createElement('div');ld.textContent='جاري تحميل اللعبة... لو تأخرت اضغط "تبويب جديد"';
+ld.style.cssText='position:absolute;top:50%;left:0;right:0;text-align:center;color:#a9a4d6;font-family:Cairo,sans-serif;padding:0 20px';
+const f=document.createElement('iframe');f.src=u;f.title=n;
+f.setAttribute('allow','fullscreen; autoplay; accelerometer; gyroscope; gamepad');
+f.style.cssText='flex:1;width:100%;border:0;background:transparent;position:relative';
+f.onload=()=>ld.remove();
+v.append(bar,ld,f);document.body.appendChild(v);
+const cl=()=>{v.remove();removeEventListener('keydown',kk);stop=null};
+const kk=e=>{if(e.key==='Escape')cl()};addEventListener('keydown',kk);stop=cl;
+bar.querySelector('#gX').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen();cl()};
+bar.querySelector('#gF').onclick=()=>{(v.requestFullscreen?v.requestFullscreen():Promise.reject()).then(()=>{try{screen.orientation.lock('landscape').catch(()=>{})}catch(e){}}).catch(()=>{window.open(u,'_blank')})}}
 function open(k){close_();$('#mt').textContent=games[k].n;score.textContent='';$('#modal').classList.add('on');stop=games[k].f()}
 function close_(){if(stop)stop();stop=null;stage.innerHTML='';$('#modal').classList.remove('on')}
 $('#close').onclick=close_;
@@ -182,4 +198,3 @@ return()=>{clearInterval(t1);clearInterval(t2)}}
 </script>
 </body>
 </html>
- 
