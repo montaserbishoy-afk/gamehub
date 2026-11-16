@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://bishoy-gamehub-mini.vercel.app/sitemap.xml
