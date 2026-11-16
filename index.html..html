@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bishoy Game Hub | بيشوي جيم هب - ألعاب متصفح مجانية بالعربي</title>
+<meta name="description" content="Bishoy Game Hub (بيشوي جيم هب): أكثر من 80 لعبة متصفح مجانية بالعربي، سباق وألغاز وكرة قدم وقتال. العب فورًا من الموبايل بدون تحميل.">
+<link rel="canonical" href="https://bishoy-gamehub-mini.vercel.app/">
+<meta property="og:type" content="website"><meta property="og:title" content="Bishoy Game Hub | بيشوي جيم هب - ألعاب متصفح مجانية">
+<meta property="og:description" content="أكثر من 80 لعبة متصفح مجانية: ثعبان، ذاكرة، إكس أو، سباق، ألغاز وغيرها. العب فورًا بدون تحميل.">
+<meta property="og:url" content="https://bishoy-gamehub-mini.vercel.app/"><meta name="keywords" content="Bishoy Game Hub, bishoy game hub, Bishoy GameHub, بيشوي جيم هب, العاب متصفح, العاب اون لاين, العاب مجانية">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Bishoy Game Hub","alternateName":["Bishoy GameHub","bishoy game hub","بيشوي جيم هب","GameHub"],"inLanguage":"ar","url":"https://bishoy-gamehub-mini.vercel.app/"}</script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#14122b;--card:#201d44;--ink:#f5f3ff;--mute:#a9a4d6;--sun:#ffc93c;--mint:#5eead4;--line:#34306a}
+@media(prefers-color-scheme:light){:root{--bg:#f5f3ff;--card:#fff;--ink:#14122b;--mute:#5b5790;--line:#d9d5f5}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,system-ui,sans-serif;line-height:1.7}
+.wrap{max-width:980px;margin:auto;padding:0 18px}
+header{padding:56px 0 28px}
+h1{font-size:clamp(40px,9vw,84px);font-weight:900;margin:0;line-height:1.05;letter-spacing:-1px}
+h1 b{color:var(--sun)}
+header p{color:var(--mute);font-size:18px;max-width:520px;margin:14px 0 0}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;padding:18px 0 40px}
+@media(min-width:640px){.grid{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(4,1fr);gap:16px}}
+.g{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:12px;min-width:0;text-align:right;color:inherit;font:inherit;cursor:pointer;transition:transform .15s,border-color .15s}
+.g:hover,.g:focus-visible{transform:translateY(-4px);border-color:var(--sun);outline:none}
+.g i{font-style:normal;font-size:40px;display:block}
+.g img{width:64px;height:64px}
+.g h3{margin:6px 0 2px;font-size:16px;line-height:1.4}
+.g span{color:var(--mute);font-size:12px;display:block}
+.g .ds{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:2.8em}
+.g em{display:inline-block;margin-top:10px;background:var(--sun);color:#14122b;font-style:normal;font-weight:700;border-radius:99px;padding:2px 12px;font-size:13px}
+section.about{border-top:2px solid var(--line);padding:28px 0;color:var(--mute)}
+section.about h2{color:var(--ink);margin:0 0 6px;font-size:22px}
+footer{border-top:2px solid var(--line);padding:22px 0 40px;color:var(--mute);font-size:14px}
+footer strong{color:var(--ink)}
+#modal{position:fixed;inset:0;background:rgba(10,8,30,.82);display:none;align-items:center;justify-content:center;padding:14px;z-index:9}
+#modal.on{display:flex}
+.box{background:var(--card);border:2px solid var(--line);border-radius:24px;padding:18px;width:min(460px,100%);max-height:96vh;overflow:auto;text-align:center}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.top h2{margin:0;font-size:20px}
+.btn{background:var(--sun);color:#14122b;border:0;border-radius:12px;padding:8px 16px;font:inherit;font-weight:700;cursor:pointer}
+.btn.alt{background:var(--line);color:var(--ink)}
+#score{color:var(--mint);font-weight:700;margin:4px 0 10px}
+canvas{background:#0d0b22;border-radius:14px;max-width:100%;touch-action:none}
+.pad{display:grid;grid-template-columns:repeat(3,56px);gap:6px;justify-content:center;margin-top:10px;direction:ltr}
+.pad button{height:48px;font-size:20px;border-radius:12px;border:0;background:var(--line);color:var(--ink);cursor:pointer}
+.cells{display:grid;gap:8px;margin:auto;direction:ltr}
+.cell{aspect-ratio:1;border-radius:14px;border:0;background:var(--line);color:var(--ink);font-size:34px;font-weight:900;cursor:pointer;font-family:inherit}
+.cell.open{background:var(--mint);color:#14122b}
+.cell.done{background:var(--sun);color:#14122b}
+.mole{background:#3a3470}.mole.up{background:var(--sun)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6571288350125866" data-ad-client="ca-pub-6571288350125866"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrap">
+<header>
+<h1>Game<b>Hub</b></h1><div style="font-size:15px;color:var(--mute);margin-top:4px">Bishoy Game Hub · بيشوي جيم هب</div>
+<p>ألعاب متصفح خفيفة بالعربي. اختار لعبة وابدأ فورًا، من غير تحميل ومن غير تسجيل.</p>
+<p style="font-size:15px;background:var(--card);border:2px solid var(--line);border-radius:14px;padding:8px 14px;max-width:520px">💡 ملحوظة: لو اللعبة مرضتش تفتح، اضغط زرار <b style="color:var(--sun)">تبويب جديد</b> وهتفتح في صفحة لوحدها.</p>
+</header>
+<main class="grid" id="grid"></main>
+<div id="homeAd"></div>
+<section class="about">
+<h2>عن الموقع</h2>
+<p>GameHub موقع ألعاب مجانية تشتغل على الموبايل والكمبيوتر. كل الألعاب هنا من تصميم وبرمجة صاحب الموقع، ونضيف ألعاب جديدة باستمرار.</p>
+</section>
+<footer>
+<p>© 2026 <strong>GameHub</strong>. جميع الحقوق محفوظة. كل الألعاب والتصميم والأكواد والمحتوى الموجود في هذا الموقع ملك لصاحب الموقع، وحقوق النشر محفوظة له بالكامل.</p>
+<p>لا يجوز نسخ أو إعادة نشر أو بيع أي جزء من الموقع أو ألعابه دون إذن كتابي مسبق من صاحبه.</p>
+<p><a href="privacy.html" style="color:var(--sun)">سياسة الخصوصية</a> · <a href="contact.html" style="color:var(--sun)">اتصل بنا</a></p>
+</footer>
+</div>
+
+<div id="modal" role="dialog" aria-modal="true"><div class="box">
+<div class="top"><h2 id="mt"></h2><button class="btn alt" id="close">إغلاق</button></div>
+<div id="score"></div><div id="stage"></div>
+</div></div>
+
+<script>
+/* ===== إعدادات الإعلانات: بعد قبول AdSense حط الأرقام هنا ===== */
+const ADS={client:'ca-pub-6571288350125866',slotHome:'5905192009',slotGame:'',h5:false}; /* مثال: client:'ca-pub-1234567890123456' */
+
+/* إعلان المكافأة (كمّل اللعب): بيشتغل بس بعد قبول جوجل في برنامج إعلانات ألعاب H5 وتحويل ADS.h5 إلى true */
+if(ADS.h5){window.adsbygoogle=window.adsbygoogle||[];window.adBreak=window.adConfig=function(o){window.adsbygoogle.push(o)};adConfig({preloadAdBreaks:'on',sound:'on'})}
+function clearCont(){const b=document.getElementById('cb');if(b)b.remove()}
+function offerContinue(fn){clearCont();if(!ADS.h5||!window.adBreak)return;
+const b=document.createElement('button');b.id='cb';b.className='btn';b.textContent='▶ كمّل اللعب (شاهد إعلان)';b.style.cssText='display:block;margin:12px auto 0;padding:12px 22px;font-size:16px';
+b.onclick=()=>{b.disabled=true;adBreak({type:'reward',name:'continue',beforeReward:show=>show(),adViewed:()=>{clearCont();fn()},adDismissed:()=>{b.disabled=false},
+adBreakDone:i=>{if(i.breakStatus!='viewed'){b.disabled=false;if(['notReady','timeout','frequencyCapped','other'].includes(i.breakStatus))b.textContent='مفيش إعلان متاح دلوقتي، جرّب بعد شوية'}}})};
+stage.appendChild(b)}
+function adSlot(slot){if(!ADS.client||!slot)return null;const d=document.createElement('div');d.style.cssText='margin:12px auto;min-height:90px;text-align:center';
+d.innerHTML=`<ins class="adsbygoogle" style="display:block" data-ad-client="${ADS.client}" data-ad-slot="${slot}" data-ad-format="auto" data-full-width-responsive="true"></ins>`;
+setTimeout(()=>{try{(adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}},50);return d}
+</script>
+<script>
+const $=s=>document.querySelector(s),stage=$('#stage'),score=$('#score');
+let stop=null;
+const games=[
+{n:'الثعبان',i:'🐍',d:'كُل وكبّر من غير ما تخبط',f:snake},
+{n:'لعبة الذاكرة',i:'🧠',d:'اقلب الكروت وطابق الأزواج',f:memory},
+{n:'إكس أو',i:'❌',d:'ضد الكمبيوتر أو ضد صاحبك',f:xo},
+{n:'صيد الخلد',i:'🔨',d:'اضرب أكبر عدد في 30 ثانية',f:mole},
+{n:'برج الستاك',i:'🏗️',d:'اضغط في اللحظة المناسبة وابني أعلى برج',f:stack},
+{n:'مطاردة النيازك',i:'☄️',d:'تفادى النيازك وجمّع النجوم',f:dodge},
+{n:'ماتش الكورة',i:'⚽',d:'1 ضد 1 ضد الكمبيوتر',f:match},
+{n:'ساحة المعركة',i:'🎯',d:'لحد 8 لاعبين أونلاين، فرق أو فردي',f:arena}
+];
+games.forEach((g,k)=>{const b=document.createElement('button');b.className='g';
+b.innerHTML=`<i>${g.i}</i><h3>${g.n}</h3><span class="ds">${g.d}</span><em>العب الآن</em>`;
+b.onclick=()=>open(k);$('#grid').appendChild(b)});
+const ext=[["السيارة المطاطية","https://game.hpyfeds.com/games/ElasticCar/_i/1787218672157.png","https://game.hpyfeds.com/games/ElasticCar/index.html","سباق","قُد سيارة مطاطية مرنة وعدّي المراحل بدون ما تقع"],["كبّر وانمو","https://game.hpyfeds.com/games/GrowUp_qx/_i/1768459353950.webp","https://game.hpyfeds.com/games/GrowUp_qx/index.html","ألغاز","كبّر شخصيتك واكل أي حاجة أصغر منك"],["متسلق التلال: الصحراء","https://game.hpyfeds.com/games/HillClimberDesertEdition/_i/1787218762341.webp","https://game.hpyfeds.com/games/HillClimberDesertEdition/index.html","خفيفة","اطلع التلال الرملية بالعربية وحافظ على التوازن"],["سائق الجيش","https://game.hpyfeds.com/games/ArmyDriver/_i/1787218683006.webp","https://game.hpyfeds.com/games/ArmyDriver/index.html","سباق","قُد مركبات الجيش في مهام صعبة"],["سباق الدراجات 2","https://game.hpyfeds.com/games/BikeRush2/_i/1787218753780.png","https://game.hpyfeds.com/games/BikeRush2/index.html","سباق","سباق دراجات سريع وعليه عقبات"],["ركن السمكة","https://game.hpyfeds.com/games/FishParking/_i/1787218678544.webp","https://game.hpyfeds.com/games/FishParking/index.html","سباق","اركن في المكان الصح بدون ما تخبط"],["ممنوع الركن هنا","https://game.hpyfeds.com/games/DoNotParkHere/_i/1787218671946.webp","https://game.hpyfeds.com/games/DoNotParkHere/index.html","ألغاز","حاول تركن عربيتك في أماكن مش مسموحة وإنت مستخبي"],["العميل السري","https://game.hpyfeds.com/games/SecretAgent/_i/1787218678111.png","https://game.hpyfeds.com/games/SecretAgent/index.html","قتال","اتسلل وكمّل المهمة من غير ما حد يشوفك"],["فرز الألوان المائية","https://game.hpyfeds.com/games/WaterColorSort/_i/1787218675395.webp","https://game.hpyfeds.com/games/WaterColorSort/index.html","ألغاز","رتّب الألوان في الأنابيب لحد ما كل لون يبقى لوحده"],["مهمة القناص","https://game.hpyfeds.com/games/SniperMission_qx/_i/1787218774230.webp","https://game.hpyfeds.com/games/SniperMission_qx/index.html","تصويب","استهدف الأعداء بدقة وأنجز المهمة"],["موتو إكس","https://game.hpyfeds.com/games/MotoX/_i/1787218673398.webp","https://game.hpyfeds.com/games/MotoX/index.html","متنوعة","سباق موتوسيكلات بحركات استعراضية"],["ركّب شاحنتي","https://game.hpyfeds.com/games/AssembleMyTruck_qx/_i/1787218772950.webp","https://game.hpyfeds.com/games/AssembleMyTruck_qx/index.html","خفيفة","جمّع أجزاء الشاحنة وركّبها صح"],["صالون شعر الأميرة","https://game.hpyfeds.com/games/PrincessHairSpaSalon_qx/_i/1787218774512.webp","https://game.hpyfeds.com/games/PrincessHairSpaSalon_qx/index.html","محاكاة","اهتم بشعر الأميرة وغيّر ستايلها"],["دكتور الأسنان","https://game.hpyfeds.com/games/DentistDoctorTeeth/_i/1787218755305.png","https://game.hpyfeds.com/games/DentistDoctorTeeth/index.html","محاكاة","اعمل دكتور أسنان وعالج مرضاك"],["صمم جراب موبايلك","https://game.hpyfeds.com/games/PhoneCaseDIY/_i/1787218760162.webp","https://game.hpyfeds.com/games/PhoneCaseDIY/index.html","خفيفة","ازخرف جراب الموبايل بالألوان والاستيكرز"],["منقّب الذهب 2","https://game.hpyfeds.com/games/GoldDigger2/_i/1787218748818.png","https://game.hpyfeds.com/games/GoldDigger2/index.html","خفيفة","احفر تحت الأرض واجمع الذهب"],["لودو ستار","https://game.hpyfeds.com/games/LudoStar/_i/1787218772628.png","https://game.hpyfeds.com/games/LudoStar/index.html","ألعاب لوحية","لعبة لودو كلاسيك تلعبها مع الأصحاب"],["كاروم","https://game.hpyfeds.com/games/Carrom/_i/1787218772187.png","https://game.hpyfeds.com/games/Carrom/index.html","ألعاب لوحية","اضرب القطع بالسترايكر وادخلها الجيوب"],["سيد التقطيع","https://game.hpyfeds.com/games/SliceMaster/_i/1787218783943.png","https://game.hpyfeds.com/games/SliceMaster/index.html","خفيفة","اقطع الأشياء بدقة وعدّي المراحل"],["مدينة الزحمة","https://game.hpyfeds.com/games/CrowdyCity/_i/1787218693959.webp","https://game.hpyfeds.com/games/CrowdyCity/index.html","قتال","اجمع ناس وكبّر جماعتك وسط الزحمة"],["الدفاع ضد الزومبي","https://game.hpyfeds.com/games/ZombieDefense/_i/1787218675921.webp","https://game.hpyfeds.com/games/ZombieDefense/index.html","ألغاز","احمِ مكانك وصد هجوم الزومبي"],["سبلاش العصير","https://game.hpyfeds.com/games/JuicySplash_hp/_i/1758106691518.png","https://game.hpyfeds.com/games/JuicySplash_hp/index.html","ألغاز","طابق الفواكه وفرقع المجموعات"],["لغز سقوط الألوان","https://game.hpyfeds.com/games/ColorFallPuzzle_qx/_i/1787218780941.webp","https://game.hpyfeds.com/games/ColorFallPuzzle_qx/index.html","خفيفة","حل لغز الألوان الساقطة بسرعة"],["سباق الجيب","https://game.hpyfeds.com/games/PocketRacing/_i/1787218765726.webp","https://game.hpyfeds.com/games/PocketRacing/index.html","خفيفة","سباق سيارات صغير وسريع"],["مهمة الإنقاذ","https://game.hpyfeds.com/games/CreedOfRescue/_i/1787218727629.png","https://game.hpyfeds.com/games/CreedOfRescue/index.html","مغامرة","أنقذ الرهائن وأنجز المهمة"],["تنظيف البيت","https://game.hpyfeds.com/games/HomeCleaning/_i/1787218764903.webp","https://game.hpyfeds.com/games/HomeCleaning/index.html","خفيفة","نضّف البيت ورتّب كل حاجة"],["بلوكات الغابة","https://game.hpyfeds.com/games/JungleBlock_qx/_i/1787218779334.webp","https://game.hpyfeds.com/games/JungleBlock_qx/index.html","خفيفة","رتّب البلوكات بذكاء وامسح الصفوف"],["انطلاق الكرة 3D","https://game.hpyfeds.com/games/BallDash3D/_i/1787218695439.png","https://game.hpyfeds.com/games/BallDash3D/index.html","ركض","دحرج الكرة بسرعة وتفادى العوائق"],["قيادة الوحش","https://game.hpyfeds.com/games/DriveMonster/_i/1787218709907.png","https://game.hpyfeds.com/games/DriveMonster/index.html","سباق","قُد عربية وحش على طرق وعرة"],["سباق السكيت","https://game.hpyfeds.com/games/SkateboardRacing_qx/_i/1787218775764.webp","https://game.hpyfeds.com/games/SkateboardRacing_qx/index.html","ركض","انزلق بالسكيت وعدّي العقبات"],["تعويم الطوف","https://game.hpyfeds.com/games/RaftDrifting_qx/_i/1787218773464.webp","https://game.hpyfeds.com/games/RaftDrifting_qx/index.html","استراتيجية","وجّه الطوف في المياه وتفادى الصخور"],["سباق العروس 3D","https://game.hpyfeds.com/games/BridalRace3D_qx/_i/1787218774924.webp","https://game.hpyfeds.com/games/BridalRace3D_qx/index.html","أكشن","اجري وسابق وجمّع الإكسسوارات"],["كرة القدم الأسطورية","https://game.hpyfeds.com/games/LegendarySoccer_qx/_i/1787218780085.webp","https://game.hpyfeds.com/games/LegendarySoccer_qx/index.html","رياضة","العب ماتش كورة سريع وسجّل أهداف"],["الرماة المحترفون","https://game.hpyfeds.com/games/CoolArchers_qx/_i/1787218779849.webp","https://game.hpyfeds.com/games/CoolArchers_qx/index.html","تصويب","اضرب الأهداف بالسهم بدقة"],["تكديس الألوان","https://game.hpyfeds.com/games/ColorStack_qx/_i/1787218779542.webp","https://game.hpyfeds.com/games/ColorStack_qx/index.html","أكشن","كدّس القطع بنفس اللون"],["ضربات حرة 3D","https://game.hpyfeds.com/games/RealFreekick3D_qx/_i/1768461313845.webp","https://game.hpyfeds.com/games/RealFreekick3D_qx/index.html","خفيفة","سدد ضربات حرة وسجّل في الجول"],["أطلق النار","https://game.hpyfeds.com/games/FireTheGun_qx/_i/1787218776187.webp","https://game.hpyfeds.com/games/FireTheGun_qx/index.html","تصويب","صوّب واضرب الأهداف قبل ما تهرب"],["امسح جزء واحد","https://game.hpyfeds.com/games/EraseOnePart/_i/1787218757041.png","https://game.hpyfeds.com/games/EraseOnePart/index.html","خفيفة","لغز ذكي: امسح الجزء الغلط واحل الموقف"],["مقاتل الدمية","https://game.hpyfeds.com/games/RagdollFighter/_i/1787218745254.png","https://game.hpyfeds.com/games/RagdollFighter/index.html","قتال","قتال بدمى مرنة ومرحة"],["ستيكمان الأقوى","https://game.hpyfeds.com/games/SupremeStickman/_i/1787218694932.webp","https://game.hpyfeds.com/games/SupremeStickman/index.html","قتال","قاتل بستيكمان وطوّر قوتك"],["الأتوبيس الحقيقي 2","https://game.hpyfeds.com/games/RealBus2/_i/1787218679073.webp","https://game.hpyfeds.com/games/RealBus2/index.html","سباق","قُد أتوبيس ووصّل الركاب للمحطات"],["أنقذ الكلب","https://game.hpyfeds.com/games/SaveTheDoge_zj/_i/1751601013939.webp","https://game.hpyfeds.com/games/SaveTheDoge_zj/index.html","ألغاز","ارسم الحماية وأنقذ الكلب من الخطر"],["حفلة السوشي","https://game.hpyfeds.com/games/SushiPartyIO/_i/1787218697642.webp","https://game.hpyfeds.com/games/SushiPartyIO/index.html","خفيفة","كُل وكبّر واتنافس في حفلة السوشي"],["سباق المغامرات","https://game.hpyfeds.com/games/StuntRace/_i/1787218762555.webp","https://game.hpyfeds.com/games/StuntRace/index.html","خفيفة","سباق بحركات خطيرة وقفزات"],["ارسم الحركة","https://game.hpyfeds.com/games/DrawAction/_i/1787218697114.webp","https://game.hpyfeds.com/games/DrawAction/index.html","قتال","ارسم الخط وخلّي الشخصية تتحرك"],["سباق مسار السماء","https://game.hpyfeds.com/games/SkyTrackRacing/_i/1787218761077.webp","https://game.hpyfeds.com/games/SkyTrackRacing/index.html","سباق","سباق على مسارات عالية في السماء"],["حرب العصي","https://game.hpyfeds.com/games/WarofSticks/_i/1787218762129.webp","https://game.hpyfeds.com/games/WarofSticks/index.html","خفيفة","جيش من العصي في معركة كبيرة"],["دمج الستيك","https://game.hpyfeds.com/games/StickMerge/_i/1787218703308.webp","https://game.hpyfeds.com/games/StickMerge/index.html","تصويب","ادمج الستيكمان وكبّر الجيش"],["سباق البلدة الصغيرة","https://game.hpyfeds.com/games/TinyTownRacing/_i/1787218709082.webp","https://game.hpyfeds.com/games/TinyTownRacing/index.html","سباق","سباق عربيات صغيرة في بلدة لطيفة"],["أميرة إي جيرل ضد سوفت جيرل","https://game.hpyfeds.com/games/PrincessEGirlVsSoftGirl/_i/1787218760657.webp","https://game.hpyfeds.com/games/PrincessEGirlVsSoftGirl/index.html","محاكاة","اختار ستايل الأميرة بين الستايلين"],["سرقة الصناديق","https://game.hpyfeds.com/games/BoxRob/_i/1787218721983.webp","https://game.hpyfeds.com/games/BoxRob/index.html","ألغاز","اتسلل وسرق الصناديق بدون ما حد ياخد باله"],["صالون أظافر الموضة","https://game.hpyfeds.com/games/FashionNailSalon/_i/1787218680758.webp","https://game.hpyfeds.com/games/FashionNailSalon/index.html","خفيفة","زيّن الأظافر بألوان وتصاميم حلوة"],["طبخ سريع: الدونتس","https://game.hpyfeds.com/games/CookingFast2Donuts/_i/1787218697334.webp","https://game.hpyfeds.com/games/CookingFast2Donuts/index.html","خفيفة","اطبخ دونتس بسرعة وقدّمها للزباين"],["مدافعو الستيك","https://game.hpyfeds.com/games/StickDefenders/_i/1787218714345.webp","https://game.hpyfeds.com/games/StickDefenders/index.html","تصويب","دافع عن قلعتك بجنود الستيك"],["اعتنِ بالطفل","https://game.hpyfeds.com/games/TakeCareOfBaby/_i/1787218679916.webp","https://game.hpyfeds.com/games/TakeCareOfBaby/index.html","محاكاة","اهتم بالطفل وأطعمه وانيّمه"],["توصيل البيتزا","https://game.hpyfeds.com/games/VortellisPizzaDelivery/_i/1787218708441.webp","https://game.hpyfeds.com/games/VortellisPizzaDelivery/index.html","سباق","وصّل البيتزا للزباين بسرعة"],["الروبوت الشرطي","https://game.hpyfeds.com/games/RobotPoliceLronPanther/_i/1787218687077.webp","https://game.hpyfeds.com/games/RobotPoliceLronPanther/index.html","أكشن","روبوت شرطي بيحارب الجريمة"],["احذف القصة","https://game.hpyfeds.com/games/DeleteStoryDop/_i/1787218765176.webp","https://game.hpyfeds.com/games/DeleteStoryDop/index.html","خفيفة","احذف الجزء الغلط وصلّح الحكاية"],["أميرة الموضة","https://game.hpyfeds.com/games/FashionPrincess/_i/1787218763272.webp","https://game.hpyfeds.com/games/FashionPrincess/index.html","خفيفة","ألبس الأميرة أحلى الأزياء"],["موعد صيف المدرسة","https://game.hpyfeds.com/games/HighSchoolSummerCrushDate/_i/1787218686098.webp","https://game.hpyfeds.com/games/HighSchoolSummerCrushDate/index.html","محاكاة","اختار أحسن قرارات في موعد صيفي"],["مين بيكذب؟","https://game.hpyfeds.com/games/WhoIsLying/_i/1787218699739.webp","https://game.hpyfeds.com/games/WhoIsLying/index.html","ألغاز","اكتشف مين فيهم بيكذب"],["ضربات حرة في الشارع","https://game.hpyfeds.com/games/StreetFreekick3D/_i/1787218687583.webp","https://game.hpyfeds.com/games/StreetFreekick3D/index.html","رياضة","سدد ضربات حرة في ملعب الشارع"],["سائقو المغامرة","https://game.hpyfeds.com/games/AdventureDrivers/_i/1787218688368.webp","https://game.hpyfeds.com/games/AdventureDrivers/index.html","سباق","قيادة مغامرة بعقبات وتحديات"],["مايوه الأميرة الصيفي","https://game.hpyfeds.com/games/PrincessSummerSwimsuit/_i/1787218684708.webp","https://game.hpyfeds.com/games/PrincessSummerSwimsuit/index.html","محاكاة","اختار مايوه صيفي للأميرة"],["صاروخ بلومجي","https://game.hpyfeds.com/games/BlumgiRocket/_i/1787218716208.webp","https://game.hpyfeds.com/games/BlumgiRocket/index.html","سباق","طيّر الصاروخ وتفادى العوائق"],["اقفز وفرقع","https://game.hpyfeds.com/games/HopPopIt/_i/1787218705186.webp","https://game.hpyfeds.com/games/HopPopIt/index.html","ألغاز","اقفز وفرقع الفقاقيع"],["أساتذة الكرة","https://game.hpyfeds.com/games/FootballMasters/_i/1787218718192.webp","https://game.hpyfeds.com/games/FootballMasters/index.html","رياضة","العب كورة بمهارة وسجّل"],["تحدي ضربات الجزاء","https://game.hpyfeds.com/games/PenaltyChallenge/_i/1787218689743.webp","https://game.hpyfeds.com/games/PenaltyChallenge/index.html","رياضة","سدد ضربات الجزاء وتغلب على الحارس"],["ارسم الكوبري","https://game.hpyfeds.com/games/DrawTheBridge/_i/1787218708640.webp","https://game.hpyfeds.com/games/DrawTheBridge/index.html","ألغاز","ارسم كوبري يوصّل العربية بأمان"],["أنقذ السمكة الذهبية","https://game.hpyfeds.com/games/SaveTheGoldFish/_i/1787218707615.webp","https://game.hpyfeds.com/games/SaveTheGoldFish/index.html","ألغاز","أنقذ السمكة بحل لغز ذكي"],["الجندي 3D","https://game.hpyfeds.com/games/FlickSoldier3D/_i/1787218744626.png","https://game.hpyfeds.com/games/FlickSoldier3D/index.html","قتال","جندي بيشتبك مع الأعداء من فوق"],["لفة حلزونية","https://game.hpyfeds.com/games/SpiralRoll/_i/1787218692410.webp","https://game.hpyfeds.com/games/SpiralRoll/index.html","ألغاز","لف مع الحلزون وتفادى العقبات"],["حمى الكرة","https://game.hpyfeds.com/games/SuperFootballFever_zj/_i/1787218691864.webp","https://game.hpyfeds.com/games/SuperFootballFever_zj/index.html","رياضة","كورة سريعة ومليانة حماس"],["جنون السماء","https://game.hpyfeds.com/games/SkyMad/_i/1787218707176.webp","https://game.hpyfeds.com/games/SkyMad/index.html","تصويب","قيادة مجنونة على مسارات في السماء"],["لودو ماني","https://game.hpyfeds.com/games/LudoManiGame_zj/_i/1787218758993.webp","https://game.hpyfeds.com/games/LudoManiGame_zj/index.html","ألعاب لوحية","لودو مع حركات إضافية"],["إكس أو كلاسيك","https://game.hpyfeds.com/games/Tictactoe2/_i/1787218677618.png","https://game.hpyfeds.com/games/Tictactoe2/index.html","ألغاز","إكس أو كلاسيك بين لاعبين"],["معركة الثعابين","https://game.hpyfeds.com/games/SnakeBattle/_i/1787218701127.webp","https://game.hpyfeds.com/games/SnakeBattle/index.html","ألغاز","ثعابين تتصارع على الأكل والمساحة"],["عارضة الأزياء الكورية","https://game.hpyfeds.com/games/KoreanSupermodel/_i/1787218758775.webp","https://game.hpyfeds.com/games/KoreanSupermodel/index.html","محاكاة","ستايل عارضة أزياء كورية"],["نجوم الكرة","https://game.hpyfeds.com/games/SoccerAllStars/_i/1787218682412.webp","https://game.hpyfeds.com/games/SoccerAllStars/index.html","رياضة","فريقك ضد فريق في ماتش كورة"],["ضربة الهليكوبتر","https://game.hpyfeds.com/games/HelicopterStrike/_i/1787218688919.webp","https://game.hpyfeds.com/games/HelicopterStrike/index.html","تصويب","هليكوبتر هجومية في معارك جوية"],["بلياردو 8 بول","https://game.hpyfeds.com/games/8BallPro/_i/1787218694594.webp","https://game.hpyfeds.com/games/8BallPro/index.html","رياضة","بلياردو كلاسيك، دخّل الكور بالترتيب"]];
+const cats=['الكل',...new Set(ext.map(e=>e[3]))];
+const bar=document.createElement('div');bar.style.cssText='display:flex;flex-wrap:wrap;gap:8px;padding:0 0 4px';
+$('#grid').before(bar);
+cats.forEach((c,i)=>{const b=document.createElement('button');b.className='btn'+(i?' alt':'');b.textContent=c;
+b.onclick=()=>{[...bar.children].forEach(z=>z.className='btn alt');b.className='btn';
+document.querySelectorAll('.g.x').forEach(z=>z.style.display=(i==0||z.dataset.c==c)?'':'none')};bar.appendChild(b)});
+ext.forEach(([n,ic,u,c,ds])=>{const b=document.createElement('button');b.className='g x';b.dataset.c=c;
+b.innerHTML=`<img src="${ic}" alt="" loading="lazy" width="64" height="64" style="border-radius:14px;display:block;object-fit:cover"><h3>${n}</h3><span class="ds">${ds}</span><em>العب الآن</em>`;
+b.onclick=()=>openExt(n,u);
+$('#grid').appendChild(b)});
+{const h=adSlot(ADS.slotHome);if(h)$('#homeAd').appendChild(h)}
+
+/* إعلانات داخل قائمة الألعاب (In-feed) */
+[12,30,52].forEach(i=>{const kids=[...$('#grid').children];if(!kids[i])return;
+const d=document.createElement('div');d.style.cssText='grid-column:1/-1;min-height:100px';
+d.innerHTML='<ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-ep-13-31-7v+r6" data-ad-client="ca-pub-6571288350125866" data-ad-slot="5481861030"></ins>';
+kids[i].after(d);setTimeout(()=>{try{(window.adsbygoogle=window.adsbygoogle||[]).push({})}catch(e){}},100)});
+const TAB=[];
+function openExt(n,u){if(TAB.includes(n)){window.open(u,'_blank','noopener');return}close_();const v=document.createElement('div');v.id='gv';
+v.style.cssText='position:fixed;inset:0;z-index:30;background:#000;display:flex;flex-direction:column';
+const bar=document.createElement('div');
+bar.style.cssText='display:flex;gap:8px;align-items:center;padding:6px 10px;background:#14122b;color:#f5f3ff;font-family:Cairo,sans-serif;direction:rtl';
+bar.innerHTML=`<b style="flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">${n}</b>
+<button class="btn" id="gF">ملء الشاشة</button><a class="btn alt" id="gT" href="${u}" target="_blank" rel="noopener" style="text-decoration:none">تبويب جديد</a><button class="btn alt" id="gX">إغلاق</button>`;
+const ld=document.createElement('div');ld.textContent='جاري تحميل اللعبة... لو تأخرت اضغط "تبويب جديد"';
+ld.style.cssText='position:absolute;top:50%;left:0;right:0;text-align:center;color:#a9a4d6;font-family:Cairo,sans-serif;padding:0 20px';
+const f=document.createElement('iframe');f.src=u;f.title=n;
+f.setAttribute('allow','fullscreen; autoplay; accelerometer; gyroscope; gamepad');
+f.style.cssText='flex:1;width:100%;border:0;background:transparent;position:relative';
+f.onload=()=>ld.remove();
+const hn=document.createElement('div');hn.textContent='💡 لو اللعبة مرضتش تفتح، اضغط «تبويب جديد»';hn.style.cssText='background:#201d44;color:#ffc93c;font:13px Cairo,sans-serif;text-align:center;padding:3px 8px;direction:rtl';
+v.append(bar,hn,ld,f);document.body.appendChild(v);
+const cl=()=>{v.remove();removeEventListener('keydown',kk);stop=null};
+const kk=e=>{if(e.key==='Escape')cl()};addEventListener('keydown',kk);stop=cl;
+bar.querySelector('#gX').onclick=()=>{if(document.fullscreenElement)document.exitFullscreen();cl()};
+bar.querySelector('#gF').onclick=()=>{(v.requestFullscreen?v.requestFullscreen():Promise.reject()).then(()=>{try{screen.orientation.lock('landscape').catch(()=>{})}catch(e){}}).catch(()=>{window.open(u,'_blank')})}}
+function open(k){close_();$('#mt').textContent=games[k].n;score.textContent='';$('#modal').classList.add('on');stop=games[k].f()}
+function close_(){if(stop)stop();stop=null;stage.innerHTML='';$('#modal').classList.remove('on')}
+$('#close').onclick=close_;
+addEventListener('keydown',e=>{if(e.key==='Escape')close_()});
+
+function snake(){
+const N=15,S=20,c=document.createElement('canvas');c.width=c.height=N*S;stage.appendChild(c);
+const x=c.getContext('2d');let s,d,nd,f,pts,over,t;
+function reset(){clearCont();s=[{x:7,y:7},{x:6,y:7}];d=nd={x:1,y:0};pts=0;over=false;food();score.textContent='النقاط: 0'}
+function food(){do{f={x:Math.random()*N|0,y:Math.random()*N|0}}while(s.some(p=>p.x==f.x&&p.y==f.y))}
+function step(){if(over)return;d=nd;const h={x:s[0].x+d.x,y:s[0].y+d.y};
+if(h.x<0||h.y<0||h.x>=N||h.y>=N||s.some(p=>p.x==h.x&&p.y==h.y)){over=true;score.textContent='خسرت! النقاط: '+pts+' (اضغط أي سهم للإعادة)';offerContinue(()=>{const hd=s[0],ok=[{x:1,y:0},{x:-1,y:0},{x:0,y:1},{x:0,y:-1}].find(q=>!(q.x==-d.x&&q.y==-d.y)&&(nx=>nx.x>=0&&nx.y>=0&&nx.x<N&&nx.y<N&&!s.some(p=>p.x==nx.x&&p.y==nx.y))({x:hd.x+q.x,y:hd.y+q.y}));if(ok){d=nd=ok;over=false;score.textContent='النقاط: '+pts}});return}
+s.unshift(h);if(h.x==f.x&&h.y==f.y){pts++;score.textContent='النقاط: '+pts;food()}else s.pop();draw()}
+function draw(){x.fillStyle='#0d0b22';x.fillRect(0,0,N*S,N*S);x.fillStyle='#ffc93c';x.beginPath();x.arc(f.x*S+S/2,f.y*S+S/2,S/2-3,0,7);x.fill();
+s.forEach((p,i)=>{x.fillStyle=i?'#5eead4':'#2dd4bf';x.fillRect(p.x*S+1,p.y*S+1,S-2,S-2)})}
+function go(a,b){if(over){reset()}if(d.x+a&&d.y+b)nd={x:a,y:b}}
+const keys={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]};
+const kd=e=>{if(keys[e.key]){e.preventDefault();go(...keys[e.key])}};addEventListener('keydown',kd);
+const pad=document.createElement('div');pad.className='pad';
+[['',0,0],['▲',0,-1],[''],['◀',-1,0],['▼',0,1],['▶',1,0]].forEach(a=>{const b=document.createElement('button');b.textContent=a[0];if(!a[0])b.style.visibility='hidden';else b.onclick=()=>go(a[1],a[2]);pad.appendChild(b)});
+stage.appendChild(pad);
+let sx,sy;c.ontouchstart=e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY};
+c.ontouchend=e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;
+Math.abs(dx)>Math.abs(dy)?go(dx>0?1:-1,0):go(0,dy>0?1:-1)};
+reset();draw();t=setInterval(step,130);
+return()=>{clearInterval(t);removeEventListener('keydown',kd)}}
+
+function memory(){
+const em=['🍕','🚀','🐱','⚽','🎸','🌵','🍉','👾'],deck=[...em,...em].sort(()=>Math.random()-.5);
+const g=document.createElement('div');g.className='cells';g.style.gridTemplateColumns='repeat(4,1fr)';stage.appendChild(g);
+let a=null,lock=false,moves=0,found=0;score.textContent='الحركات: 0';
+deck.forEach(v=>{const b=document.createElement('button');b.className='cell';b.textContent='?';
+b.onclick=()=>{if(lock||b.classList.contains('open')||b.classList.contains('done'))return;
+b.textContent=v;b.classList.add('open');
+if(!a){a=b;return}
+moves++;score.textContent='الحركات: '+moves;
+if(a.textContent==v){a.className=b.className='cell done';found++;a=null;
+if(found==8)score.textContent='مبروك! خلصتها في '+moves+' حركة 🎉'}
+else{lock=true;const p=a;a=null;setTimeout(()=>{[p,b].forEach(z=>{z.className='cell';z.textContent='?'});lock=false},700)}};
+g.appendChild(b)});
+return()=>{}}
+
+function xo(){
+let B,end,turn,vs,sc={X:0,O:0,T:0};
+const W=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+const win=p=>W.find(l=>l.every(i=>B[i]==p));
+function menu(){stage.innerHTML='';score.textContent='اختار طريقة اللعب';
+[['ضد الكمبيوتر 🤖','cpu'],['ضد صاحبك 👥','pvp']].forEach(([t,m])=>{const b=document.createElement('button');b.className='btn';b.textContent=t;b.style.cssText='display:block;width:100%;margin:10px 0;padding:16px;font-size:18px';b.onclick=()=>{vs=m;sc={X:0,O:0,T:0};start()};stage.appendChild(b)})}
+const g=document.createElement('div');g.className='cells';g.style.gridTemplateColumns='repeat(3,1fr)';
+function msg(t){score.textContent=t+'  |  X: '+sc.X+'  تعادل: '+sc.T+'  O: '+sc.O}
+function start(){B=Array(9).fill('');end=false;turn='X';stage.innerHTML='';stage.appendChild(g);
+const r=document.createElement('button');r.className='btn';r.textContent='جولة جديدة';r.style.margin='12px 6px 0';r.onclick=start;
+const m=document.createElement('button');m.className='btn alt';m.textContent='تغيير الوضع';m.style.margin='12px 6px 0';m.onclick=menu;
+stage.append(r,m);show();msg(vs=='cpu'?'أنت X، دورك':'دور اللاعب X')}
+function show(w){g.innerHTML='';B.forEach((v,i)=>{const b=document.createElement('button');b.className='cell'+(w&&w.includes(i)?' done':'');b.textContent=v;b.onclick=()=>play(i);g.appendChild(b)})}
+function fin(){const w=win(turn);
+if(w){sc[turn]++;end=true;show(w);msg(vs=='cpu'?(turn=='X'?'🎉 كسبت!':'الكمبيوتر كسب 😅'):'🎉 اللاعب '+turn+' كسب!');return true}
+if(B.every(v=>v)){sc.T++;end=true;show();msg('تعادل');return true}return false}
+function pick(p){for(const i of B.keys())if(!B[i]){B[i]=p;const w=win(p);B[i]='';if(w)return i}return -1}
+function play(i){if(end||B[i]||(vs=='cpu'&&turn!='X'))return;B[i]=turn;show();if(fin())return;
+turn=turn=='X'?'O':'X';
+if(vs=='pvp'){msg('دور اللاعب '+turn);return}
+msg('الكمبيوتر بيفكر...');
+setTimeout(()=>{let m=pick('O');if(m<0)m=pick('X');if(m<0)m=B[4]?[0,2,6,8,1,3,5,7].find(k=>!B[k]):4;
+B[m]='O';show();if(!fin()){turn='X';msg('دورك')}},400)}
+menu();return()=>{}}
+
+function dodge(){
+const W=300,H=420,c=document.createElement('canvas');c.width=W;c.height=H;stage.appendChild(c);
+const x=c.getContext('2d');let px,tx,ob,fr,pts,over,t,hi=0;const keys={};
+function reset(){clearCont();px=tx=W/2;ob=[];fr=0;pts=0;over=false;score.textContent='اسحب بإصبعك لتفادي النيازك ☄️ وجمّع النجوم ⭐'}
+function setT(e){const r=c.getBoundingClientRect();tx=(e.clientX-r.left)*W/r.width}
+c.onpointerdown=e=>{if(over)reset();setT(e)};c.onpointermove=e=>{if(e.buttons||e.pointerType=='touch')setT(e)};
+const kd=e=>{if(e.key=='ArrowLeft'||e.key=='ArrowRight'){e.preventDefault();keys[e.key]=1;if(over)reset()}},ku=e=>{keys[e.key]=0};
+addEventListener('keydown',kd);addEventListener('keyup',ku);
+function tick(){if(over)return;fr++;
+if(keys.ArrowLeft)tx=px-60;if(keys.ArrowRight)tx=px+60;
+tx=Math.max(14,Math.min(W-14,tx));px+=(tx-px)*.25;
+const lv=1+fr/600;if(fr%Math.max(10,30-(lv*3|0))==0){const st=Math.random()<.15;ob.push({x:Math.random()*(W-30)+15,y:-20,r:st?9:8+Math.random()*10,v:(2+lv*.8)*(.8+Math.random()*.5),s:st})}
+ob.forEach(o=>o.y+=o.v);
+for(const o of ob){if(Math.hypot(o.x-px,o.y-(H-40))<o.r+11){if(o.s){pts+=5;o.dead=1}else{over=true;hi=Math.max(hi,pts);score.textContent='خبطت! نقاطك: '+pts+' | أعلى نتيجة: '+hi+' (المس للإعادة)';offerContinue(()=>{over=false;ob=[]})}}}
+ob=ob.filter(o=>!o.dead&&o.y<H+30);if(fr%10==0)pts++;
+if(!over)score.textContent='النقاط: '+pts;draw()}
+function draw(){x.fillStyle='#0d0b22';x.fillRect(0,0,W,H);x.fillStyle='#ffffff55';
+for(let i=0;i<30;i++)x.fillRect((i*97)%W,(i*53+fr*(1+i%3))%H,1.5,1.5);
+ob.forEach(o=>{if(o.s){x.fillStyle='#ffc93c';x.font=(o.r*2.4)+'px serif';x.textAlign='center';x.fillText('⭐',o.x,o.y+o.r*.8)}
+else{x.fillStyle='#8a86b8';x.beginPath();x.arc(o.x,o.y,o.r,0,7);x.fill();x.fillStyle='#6d69a0';x.beginPath();x.arc(o.x-o.r/3,o.y-o.r/3,o.r/3,0,7);x.fill()}});
+x.fillStyle=over?'#f87171':'#5eead4';x.beginPath();x.moveTo(px,H-58);x.lineTo(px-14,H-26);x.lineTo(px+14,H-26);x.closePath();x.fill()}
+reset();t=setInterval(tick,16);
+return()=>{clearInterval(t);removeEventListener('keydown',kd);removeEventListener('keyup',ku)}}
+
+function match(){
+const W=300,H=450,GW=90,R=12,BR=7,c=document.createElement('canvas');c.width=W;c.height=H;stage.appendChild(c);
+const x=c.getContext('2d'),keys={};let P,C,B,sc,left,over,t,tg=null,shoot=0,pause=0,ck=0;
+function pos(){P={x:W/2,y:H-90,vx:0,vy:0};C={x:W/2,y:90,vx:0,vy:0};B={x:W/2,y:H/2,vx:0,vy:0}}
+function reset(){sc=[0,0];left=3700;over=false;pos();pause=40}
+function hud(){score.textContent='أنت '+sc[0]+' - '+sc[1]+' الكمبيوتر   ⏱ '+Math.max(0,Math.ceil(left/62))}
+function pt(e){const r=c.getBoundingClientRect();tg={x:(e.clientX-r.left)*W/r.width,y:(e.clientY-r.top)*H/r.height}}
+c.onpointerdown=e=>{if(over)reset();pt(e)};c.onpointermove=e=>{if(tg)pt(e)};c.onpointerup=c.onpointerleave=()=>{tg=null};
+const sb=document.createElement('button');sb.className='btn';sb.textContent='🎯 شوت';sb.style.cssText='margin-top:10px;padding:12px 40px;font-size:18px';
+sb.onpointerdown=e=>{e.preventDefault();shoot=12};stage.appendChild(sb);
+const kd=e=>{if(e.key==' '){e.preventDefault();shoot=12}else if(e.key.startsWith('Arrow')){e.preventDefault();keys[e.key]=1}},ku=e=>{keys[e.key]=0};
+addEventListener('keydown',kd);addEventListener('keyup',ku);
+const clamp=p=>{p.x=Math.max(R,Math.min(W-R,p.x));p.y=Math.max(R,Math.min(H-R,p.y))};
+function goal(i){sc[i]++;pos();pause=60}
+function tick(){if(over)return;if(pause>0){pause--;draw();hud();return}
+left--;if(left<=0){over=true;score.textContent=(sc[0]>sc[1]?'🎉 فزت! ':sc[0]<sc[1]?'خسرت 😅 ':'تعادل ')+sc[0]+' - '+sc[1]+' (المس للعب تاني)';draw();return}
+let dx=(keys.ArrowRight?1:0)-(keys.ArrowLeft?1:0),dy=(keys.ArrowDown?1:0)-(keys.ArrowUp?1:0);
+if(tg){dx=tg.x-P.x;dy=tg.y-P.y}let m=Math.hypot(dx,dy);
+if(m>6){P.vx=dx/m*2.8;P.vy=dy/m*2.8}else P.vx=P.vy=0;P.x+=P.vx;P.y+=P.vy;clamp(P);
+const lv=Math.min(2.1+sc[1]*0+(sc[0]-sc[1])*.1,2.6);dx=B.x-C.x;dy=B.y-10-C.y;m=Math.hypot(dx,dy)||1;
+C.vx=dx/m*lv;C.vy=dy/m*lv;C.x+=C.vx;C.y+=C.vy;clamp(C);
+if(shoot>0){shoot--;if(Math.hypot(B.x-P.x,B.y-P.y)<R+BR+10){const a=Math.atan2(-B.y,W/2-B.x);B.vx=Math.cos(a)*9;B.vy=Math.sin(a)*9;shoot=0}}
+ck--;if(ck<=0&&Math.hypot(B.x-C.x,B.y-C.y)<R+BR+8){const a=Math.atan2(H-B.y,W/2+(Math.random()*50-25)-B.x);B.vx=Math.cos(a)*6.5;B.vy=Math.sin(a)*6.5;ck=45}
+for(const p of [P,C]){let ex=B.x-p.x,ey=B.y-p.y,d=Math.hypot(ex,ey);if(d<R+BR){const nx=ex/(d||1),ny=d?ey/d:1;B.x=p.x+nx*(R+BR);B.y=p.y+ny*(R+BR);B.vx=nx*3.5+p.vx*.6;B.vy=ny*3.5+p.vy*.6}}
+B.x+=B.vx;B.y+=B.vy;B.vx*=.985;B.vy*=.985;
+if(B.x<BR){B.x=BR;B.vx*=-.8}if(B.x>W-BR){B.x=W-BR;B.vx*=-.8}
+if(B.y<BR){if(Math.abs(B.x-W/2)<GW/2){goal(0)}else{B.y=BR;B.vy*=-.8}}
+else if(B.y>H-BR){if(Math.abs(B.x-W/2)<GW/2){goal(1)}else{B.y=H-BR;B.vy*=-.8}}
+draw();hud()}
+function draw(){x.fillStyle='#1f8a4c';x.fillRect(0,0,W,H);x.fillStyle='#24995a';for(let i=0;i<9;i+=2)x.fillRect(0,i*H/9,W,H/9);
+x.strokeStyle='#ffffffcc';x.lineWidth=2;x.strokeRect(2,2,W-4,H-4);x.beginPath();x.moveTo(0,H/2);x.lineTo(W,H/2);x.stroke();
+x.beginPath();x.arc(W/2,H/2,38,0,7);x.stroke();x.strokeRect(W/2-55,2,110,50);x.strokeRect(W/2-55,H-52,110,50);
+x.fillStyle='#fff';x.fillRect(W/2-GW/2,0,GW,4);x.fillRect(W/2-GW/2,H-4,GW,4);
+x.fillStyle='#38bdf8';x.beginPath();x.arc(P.x,P.y,R,0,7);x.fill();
+x.fillStyle='#f87171';x.beginPath();x.arc(C.x,C.y,R,0,7);x.fill();
+x.fillStyle='#fff';x.beginPath();x.arc(B.x,B.y,BR,0,7);x.fill();x.strokeStyle='#14122b';x.lineWidth=1;x.stroke()}
+reset();t=setInterval(tick,16);
+return()=>{clearInterval(t);removeEventListener('keydown',kd);removeEventListener('keyup',ku)}}
+
+function arena(){
+const S=640,V=320,COL=['#38bdf8','#f87171','#4ade80','#fbbf24','#c084fc','#fb923c','#2dd4bf','#f472b6'];
+let peer,conns=[],conn,me=0,host=false,mode='solo',st=null,inp={mx:0,my:0,sh:0,ang:0},ins=[],P=[],Bu=[],zone=450,tk=0,iv,iv2,play=false,code='',cnt=1,c,x;
+const B=(t,f,cl='')=>{const b=document.createElement('button');b.className='btn '+cl;b.textContent=t;b.style.cssText='display:block;width:100%;margin:8px 0;padding:14px;font-size:17px';b.onclick=f;return b};
+const T=t=>{const d=document.createElement('div');d.textContent=t;d.style.cssText='margin:10px 0;color:var(--mute)';return d};
+const show=(...e)=>{stage.innerHTML='';e.forEach(z=>stage.append(z))};
+const send=m=>conns.forEach(k=>{if(!k.gone&&k.open)try{k.send(m)}catch(e){}});
+function lib(cb){if(window.Peer)return cb();const q=document.createElement('script');q.src='https://cdn.jsdelivr.net/npm/peerjs@1.5.4/dist/peerjs.min.js';q.onload=cb;q.onerror=()=>score.textContent='تعذر تحميل اللعب الجماعي، اتأكد من النت';document.head.appendChild(q)}
+function menu(){score.textContent='معركة جماعية: لحد 8 لاعبين، كل واحد بجهازه';const i=document.createElement('input');i.placeholder='كود الغرفة (4 أرقام)';i.inputMode='numeric';i.style.cssText='width:100%;padding:12px;font:inherit;border-radius:12px;border:2px solid var(--line);text-align:center;margin-top:6px';
+show(T('لازم كل اللاعبين يكون عندهم نت (ممكن واحد منكم يفتح هوتسبوت للباقي).'),B('إنشاء غرفة',hostRoom),i,B('دخول غرفة',()=>joinRoom(i.value.trim()),'alt'))}
+function lobby(){if(play)return;cnt=1+conns.filter(k=>!k.gone).length;
+if(host){show(T('كود الغرفة: '+code+'  |  اللاعبين: '+cnt+' / 8'),B(mode=='solo'?'الوضع: كل واحد لنفسه':'الوضع: فرق (كل اتنين مع بعض)',()=>{mode=mode=='solo'?'duo':'solo';lobby()},'alt'),B('ابدأ المعركة',start));send({t:'l',n:cnt,m:mode})}
+else show(T('تم الدخول! اللاعبين: '+cnt+' | الوضع: '+(mode=='solo'?'فردي':'فرق')+' | استنى المضيف يبدأ...'))}
+function hostRoom(){host=true;score.textContent='جاري إنشاء الغرفة...';lib(()=>{code=String(1000+Math.random()*9000|0);peer=new Peer('bgh'+code);
+peer.on('error',e=>{if(e.type=='unavailable-id')hostRoom();else score.textContent='خطأ في الاتصال: '+e.type});
+peer.on('open',()=>{score.textContent='ابعت الكود لأصحابك';lobby()});
+peer.on('connection',k=>{k.on('open',()=>{if(play||conns.length>=7){k.close();return}k.open=1;conns.push(k);k.idx=conns.length;k.send({t:'h',i:k.idx});lobby()});
+k.on('data',d=>{if(d.t=='i')ins[k.idx]=d});k.on('close',()=>{k.gone=1;if(P[k.idx])P[k.idx].a=0;lobby()})})})}
+function joinRoom(v){if(!/^\d{4}$/.test(v)){score.textContent='اكتب كود من 4 أرقام';return}score.textContent='جاري الدخول...';
+lib(()=>{peer=new Peer();peer.on('error',e=>score.textContent='تعذر الدخول: '+e.type+' (اتأكد من الكود والنت)');
+peer.on('open',()=>{conn=peer.connect('bgh'+v,{reliable:true});setTimeout(()=>{if(!conn.open)score.textContent='الغرفة مش لاقيها، اتأكد من الكود'},8000);
+conn.on('open',()=>{score.textContent='دخلت الغرفة ✅'});conn.on('close',()=>{score.textContent='المضيف خرج من اللعبة';clearInterval(iv2)});
+conn.on('data',d=>{if(d.t=='h')me=d.i;else if(d.t=='l'){cnt=d.n;mode=d.m;lobby()}else if(d.t=='go')begin();else if(d.t=='s')st=d;else if(d.t=='e')fin(d.w)})})})}
+function begin(){play=true;c=document.createElement('canvas');c.width=c.height=V;x=c.getContext('2d');show(c,T('يسار الشاشة: حرّك | يمين الشاشة: اضرب (اسحب ناحية الاتجاه)'));
+const ptr={};const calc=()=>{inp.mx=inp.my=inp.sh=0;for(const k in ptr){const p=ptr[k],dx=p.x-p.x0,dy=p.y-p.y0,m=Math.hypot(dx,dy);if(m<6)continue;if(p.a){inp.ang=Math.atan2(dy,dx);inp.sh=1}else{inp.mx=dx/m*Math.min(1,m/40);inp.my=dy/m*Math.min(1,m/40)}}};
+c.onpointerdown=e=>{c.setPointerCapture(e.pointerId);const r=c.getBoundingClientRect();ptr[e.pointerId]={x0:e.clientX,y0:e.clientY,x:e.clientX,y:e.clientY,a:e.clientX-r.left>r.width/2}};
+c.onpointermove=e=>{const p=ptr[e.pointerId];if(p){p.x=e.clientX;p.y=e.clientY;calc()}};c.onpointerup=c.onpointercancel=e=>{delete ptr[e.pointerId];calc()};
+if(!host)iv2=setInterval(()=>{try{conn.send({t:'i',mx:inp.mx,my:inp.my,sh:inp.sh,ang:inp.ang})}catch(e){}},33);
+draw()}
+function start(){if(cnt<2){score.textContent='محتاج لاعب تاني على الأقل';return}
+const n=1+conns.length;P=[];for(let i=0;i<n;i++){const a=i/n*6.283;P.push({x:S/2+Math.cos(a)*230,y:S/2+Math.sin(a)*230,hp:100,team:mode=='duo'?i>>1:i,a:conns[i-1]&&conns[i-1].gone?0:1,k:0,ang:0,cd:0})}
+Bu=[];ins=[];zone=450;tk=0;send({t:'go'});begin();iv=setInterval(hostTick,33)}
+function hostTick(){tk++;ins[0]=inp;zone=Math.max(90,450-tk*.12);
+P.forEach((p,i)=>{if(!p.a)return;const u=ins[i]||{mx:0,my:0,sh:0,ang:p.ang};p.x=Math.max(8,Math.min(S-8,p.x+u.mx*3.4));p.y=Math.max(8,Math.min(S-8,p.y+u.my*3.4));
+if(u.sh||u.mx||u.my){p.ang=u.sh?u.ang:Math.atan2(u.my,u.mx)}p.cd--;if(u.sh&&p.cd<=0){Bu.push({x:p.x,y:p.y,vx:Math.cos(u.ang)*10,vy:Math.sin(u.ang)*10,o:i,l:45});p.cd=7}
+if(Math.hypot(p.x-S/2,p.y-S/2)>zone){p.hp-=.5;if(p.hp<=0)p.a=0}});
+Bu.forEach(b=>{b.x+=b.vx;b.y+=b.vy;b.l--;P.forEach((p,i)=>{if(p.a&&!b.d&&P[b.o].team!=p.team&&Math.hypot(b.x-p.x,b.y-p.y)<11){b.d=1;p.hp-=14;if(p.hp<=0){p.a=0;P[b.o].k++}}})});Bu=Bu.filter(b=>!b.d&&b.l>0);
+const al=P.filter(p=>p.a),tm=new Set(al.map(p=>p.team));
+st={t:'s',p:P.map(p=>[p.x|0,p.y|0,p.hp|0,p.team,+p.ang.toFixed(2),p.a,p.k]),b:Bu.map(b=>[b.x|0,b.y|0]),z:zone|0};send(st);
+if(tm.size<=1&&tk>20){clearInterval(iv);const w=tm.size?(mode=='solo'?'اللاعب #'+(al[0].team+1):'الفريق '+(al[0].team+1)):'تعادل';send({t:'e',w});fin(w)}}
+function fin(w){clearInterval(iv);clearInterval(iv2);score.textContent='🏆 الفايز: '+w;play=false;const r=B('ارجع للقايمة',()=>{try{peer.destroy()}catch(e){}conns=[];host=false;st=null;menu()});stage.append(r)}
+function draw(){if(!play)return;requestAnimationFrame(draw);const k=V/S;x.fillStyle='#16241c';x.fillRect(0,0,V,V);
+if(st){x.strokeStyle='#f87171';x.lineWidth=2;x.beginPath();x.arc(V/2,V/2,st.z*k,0,7);x.stroke();
+x.fillStyle='#fde68a';st.b.forEach(b=>x.fillRect(b[0]*k-1.5,b[1]*k-1.5,3,3));
+st.p.forEach((p,i)=>{if(!p[5])return;x.fillStyle=COL[p[3]%8];x.beginPath();x.arc(p[0]*k,p[1]*k,7,0,7);x.fill();
+if(i==me){x.strokeStyle='#fff';x.lineWidth=2;x.stroke()}x.strokeStyle='#fff';x.lineWidth=2;x.beginPath();x.moveTo(p[0]*k,p[1]*k);x.lineTo(p[0]*k+Math.cos(p[4])*12,p[1]*k+Math.sin(p[4])*12);x.stroke();
+x.fillStyle='#0008';x.fillRect(p[0]*k-8,p[1]*k-13,16,3);x.fillStyle='#4ade80';x.fillRect(p[0]*k-8,p[1]*k-13,16*p[2]/100,3)});
+const m=st.p[me];if(m)score.textContent='أنت #'+(me+1)+(m[5]?'':' (خرجت)')+' | ضرباتك: '+m[6]+' | الأحياء: '+st.p.filter(q=>q[5]).length}}
+menu();
+return()=>{play=false;clearInterval(iv);clearInterval(iv2);try{peer&&peer.destroy()}catch(e){}}}
+
+function stack(){
+const W=300,H=420,BH=22,c=document.createElement('canvas');c.width=W;c.height=H;c.style.cursor='pointer';stage.appendChild(c);
+const x=c.getContext('2d');let bl,cur,dir,over,t;
+function nb(){const l=bl[bl.length-1];cur={x:0,w:l.w};dir=1}
+function reset(){clearCont();bl=[{x:80,w:140}];over=false;nb();score.textContent='اضغط في اللحظة المناسبة | الارتفاع: 0'}
+function draw(){x.fillStyle='#0d0b22';x.fillRect(0,0,W,H);const off=Math.max(0,bl.length-12)*BH;
+bl.concat(over?[]:[cur]).forEach((b,i)=>{x.fillStyle='hsl('+(i*22%360)+',70%,60%)';x.fillRect(b.x,H-(i+1)*BH+off,b.w,BH-2)})}
+function tick(){if(over)return;const sp=2+Math.min(bl.length*.15,5);cur.x+=dir*sp;if(cur.x+cur.w>=W)dir=-1;if(cur.x<=0)dir=1;draw()}
+function drop(){if(over){reset();return}const l=bl[bl.length-1];let cx=cur.x;if(Math.abs(cx-l.x)<5)cx=l.x;
+const L=Math.max(cx,l.x),R=Math.min(cx+cur.w,l.x+l.w),w=R-L;
+if(w<=0){over=true;score.textContent='انتهت! ارتفاعك: '+(bl.length-1)+' (اضغط للإعادة)';offerContinue(()=>{over=false;nb();score.textContent='الارتفاع: '+(bl.length-1)});draw();return}
+bl.push({x:L,w});score.textContent='الارتفاع: '+(bl.length-1);cur={x:cur.x,w};}
+c.onpointerdown=e=>{e.preventDefault();drop()};
+const kd=e=>{if(e.code=='Space'){e.preventDefault();drop()}};addEventListener('keydown',kd);
+reset();t=setInterval(tick,16);
+return()=>{clearInterval(t);removeEventListener('keydown',kd)}}
+
+function mole(){
+const g=document.createElement('div');g.className='cells';g.style.gridTemplateColumns='repeat(3,1fr)';stage.appendChild(g);
+const hs=[],r=document.createElement('button');r.className='btn';r.textContent='ابدأ';r.style.marginTop='12px';stage.appendChild(r);
+let pts=0,left=0,up=-1,t1,t2;
+for(let i=0;i<9;i++){const b=document.createElement('button');b.className='cell mole';b.onclick=()=>{if(i==up&&left>0){pts++;up=-1;b.className='cell mole';upd()}};hs.push(b);g.appendChild(b)}
+function upd(){score.textContent='النقاط: '+pts+' | الوقت: '+left}
+function clr(){hs.forEach(h=>{h.className='cell mole';h.textContent=''})}
+function pop(){clr();up=Math.random()*9|0;hs[up].className='cell mole up';hs[up].textContent='🐹'}
+r.onclick=()=>{clearInterval(t1);clearInterval(t2);pts=0;left=30;upd();pop();
+t1=setInterval(pop,750);
+t2=setInterval(()=>{left--;upd();if(left<=0){clearInterval(t1);clearInterval(t2);clr();up=-1;score.textContent='خلص الوقت! نقاطك: '+pts}},1000)};
+score.textContent='اضغط ابدأ';
+return()=>{clearInterval(t1);clearInterval(t2)}}
+</script>
+</body>
+</html>
